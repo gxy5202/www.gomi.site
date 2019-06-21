@@ -1,0 +1,216 @@
+@import '../../../static/css/commen.scss';
+
+//最外层容器
+.container {
+  position: fixed;
+  @include flex-justify-between;
+  width: 100%;
+  height: 90px;
+  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0));
+  .nav-logo {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  
+  @media screen and (max-width: 1200px){
+    //点击菜单后
+    &.container-box-open {
+      position: fixed;
+      //display: block;
+      width:100%;
+      height: 100%;
+      background: rgb(30,30,63);
+      z-index: 99;
+      animation: topToDown 0.5s ease-in-out; 
+      &.container-box-close {
+        animation: downToTop 0.5s ease-in-out; 
+      }
+    }
+    //logo屏幕宽度小于1200px时  
+    .nav-logo {
+        visibility: hidden;
+        &.nav-logo-open{
+          position: absolute;
+          visibility: visible;
+          z-index: 99;
+          left:30px;
+          top:25px;
+        }
+    }
+  }
+  
+  /*
+   *导航内容样式
+  */
+  .nav-right {
+    @include flex-justify-between;
+    margin-right: 50px;
+
+    //屏幕宽度大于1200px时
+    @media screen and (min-width: 1200px){
+      .nav-content {
+        width: 500px;
+        height: 100%;
+        min-width: 300px;
+        ul {
+          width: 100%;
+          height: 100%;
+          @include flex-all-center;
+          li {
+            position: relative;
+            @include flex-justify-around;
+            width: 100px;
+            height: 40px;
+            margin:10px;
+            border: 1px solid rgba(0,0,0,0);
+            border-radius: 20px;
+            cursor: pointer;
+            z-index: 99;
+            a {
+              color:$white;
+            }
+            .item-move-box {
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              border: 1px solid rgba(0,0,0,0);
+              border-radius: 20px;
+              transition: 0.3s linear;
+              z-index: -1;
+            }
+            &:first-child {
+              .item-move-box {
+                border-color:$white;
+              }
+            }
+            
+          }
+        }
+      }
+
+      .login {
+        @include flex-all-center;
+        width: 25px;
+        height: 25px;
+        border: 2px solid $white;
+        border-radius: 50%;
+      }
+
+      .nav-menu{
+        display: none;
+      }
+
+    }
+
+    //屏幕宽度小于1200px时
+    @media screen and (max-width: 1200px){
+      height: 100%;
+      .nav-content {
+        display: none;
+        &.nav-content-open {
+          position: absolute;
+          display: block;
+          width: 100%;
+          height: 100%;
+          background: rgb(18,14,20);
+          animation: topToDown 0.7s ease-in-out; 
+
+          ul {
+            @include flex-column-center;
+            width: 100%;
+            height: 100%;
+            background: rgb(69,76,89);
+            animation: topToDown 0.9s ease-in-out;
+            li {
+              margin:30px;
+              a {
+                font-size: 30px;
+                color:$white;
+              }
+            }
+          }
+        }
+        &.nav-content-close {
+          animation: downToTop 0.7s ease-in-out;
+        }
+      }
+
+      .login {
+        display: none;
+        &.login-open {
+          position: absolute;
+          @include flex-all-center;
+          width: 40px;
+          height: 40px;
+          right:90px;
+          top:25px;
+          border-radius: 50%;
+          border: 1px solid $white;
+          z-index: 999;
+        }
+      }
+
+      .nav-menu{
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        right:30px;
+        top:25px;
+        background: rgba(255,255,255,0.2);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 0.2s;
+        &:hover {
+          background: rgba(255,255,255,0.4);
+        }
+        @include flex-column-center;
+        div {
+          width:20px;
+          height: 2px;
+          margin:5px;
+          border-radius: 30px;
+          background: $white;
+        }
+        &.nav-menu-open{
+          background: rgba(255,255,255,1);
+          div {
+            background: $black;
+          }
+          div:nth-child(1) {
+            transform: translateY(6px) rotate(45deg) ;
+            transition: 0.5s;
+          }
+          div:nth-child(2) {
+            transform: translateY(-6px) rotate(-45deg) ;
+            transition: 0.5s;
+          }
+        }
+        &.nav-menu-close {
+          div:nth-child(1) {
+            transform: translateY(0) rotate(0) ;
+            transition: 0.5s;
+          }
+          div:nth-child(2) {
+            transform: translateY(0) rotate(0) ;
+            transition: 0.5s;
+          }
+        }
+      }
+
+    }
+    
+  }
+
+  //缩放导航
+  .nav-right-scale {
+    
+  }
+  
+}

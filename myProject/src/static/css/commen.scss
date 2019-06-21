@@ -1,0 +1,65 @@
+$black:rgb(0,0,0);
+$white:rgb(255,255,255);
+html {
+    height: 100%;
+}
+ul,li{
+    margin:0;
+    padding:0;
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+}
+@mixin flex-all-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin flex-justify-center {
+    display: flex;
+    justify-content: center;
+}
+@mixin flex-align-center {
+    display: flex;
+    align-items: center;
+}
+@mixin flex-justify-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@mixin flex-justify-around {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+@mixin flex-column-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+//导航从上往下
+@keyframes topToDown{
+    0%{
+      transform: translateY(-500px);
+      opacity: 0;
+    }
+    100%{
+      transform: translateY(0);
+      opacity: 1;
+    }
+}
+//导航从下网上
+@keyframes downToTop{
+    0%{
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100%{
+      transform: translateY(-500px);
+      opacity: 0;
+    }
+}
