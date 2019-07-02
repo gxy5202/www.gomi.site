@@ -1,6 +1,7 @@
 
 import TopNav from './TopNav/TopNav';
 
+
 export default {
     name: 'Home',
     data () {
@@ -10,5 +11,8 @@ export default {
     },
     components:{
         TopNav,
-    }
+    },
+    mounted() {
+      
+    },
   }

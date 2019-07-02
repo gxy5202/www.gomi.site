@@ -6,7 +6,7 @@ import TopNav from '@/pages/Home/TopNav/TopNav'
 Vue.use(Router)
 
 export default new Router({
-  //mode:'history',
+  mode:'history',
   routes: [
     {
       path: "/",
